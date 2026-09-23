@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Festenparts</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -25,11 +25,12 @@
             min-height: 100vh;
         }
         header {
-            background-color: #1e293b;
+            background-color: #ffffff;
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 20px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -47,28 +48,29 @@
         .company-name {
             font-size: 22px;
             font-weight: 700;
-            color: #ffffff;
+            color: #325d7e;
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
         .nav-button {
-            color: #ffffff;
+            color: #325d7e;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
             padding: 8px 22px;
-            border: 2px solid #ffffff;
+            border: 2px solid #325d7e;
             border-radius: 4px;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         .nav-button:hover {
-            background-color: #ffffff;
-            color: #1e293b;
+            background-color: #325d7e;
+            color: #ffffff;
         }
         .lang-dropdown {
             position: relative;
@@ -76,7 +78,7 @@
         }
         .lang-btn {
             background-color: transparent;
-            color: #ffffff;
+            color: #325d7e;
             border: none;
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
@@ -96,7 +98,7 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background-color: #1e293b;
+            background-color: #325d7e;
             min-width: 80px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             border-radius: 4px;
@@ -117,7 +119,7 @@
             transition: background-color 0.2s;
         }
         .lang-content a:hover {
-            background-color: #334155;
+            background-color: #1e3b52;
         }
         main { flex-grow: 1; }
         section {
@@ -135,6 +137,7 @@
             margin-bottom: 15px;
         }
         #about {
+            scroll-margin-top: 150px;
             background-color: #f8fafc;
             border-radius: 8px;
             text-align: center;
@@ -143,8 +146,86 @@
             font-size: 28px;
             margin-bottom: 20px;
         }
+
+        #partners {
+            scroll-margin-top: 160px;
+            text-align: center;
+            padding: 60px 0; 
+            max-width: 100%;
+            overflow: hidden;
+        }
+        #partners h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .slider-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: #ffffff;
+            padding: 20px 0;
+            position: relative;
+        }
+        .slider-container::before,
+        .slider-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            z-index: 2;
+        }
+        .slider-container::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+        .slider-container::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+        
+        .slider-track {
+            display: flex;
+            align-items: center;
+            width: max-content; 
+            gap: 40px;
+            animation: scroll 40s linear infinite;
+        }
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+        .partner-logo {
+            width: 200px;
+            padding: 0 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .partner-logo a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .partner-logo img {
+            max-width: 120px;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .partner-logo a:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
         footer {
-            background-color: #1e293b;
+            background-color: #325d7e;
             color: #ffffff;
             padding: 30px;
             text-align: center;
@@ -162,66 +243,65 @@
         }
         .contact-info a:hover { text-decoration: underline; }
 
-@media (max-width: 768px) {
-    
-    header {
-        padding: 12px 10px; 
-    }
+        @media (max-width: 768px) {
+            header { 
+                padding: 10px 5px; 
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .brand { 
+                gap: 6px; 
+                flex-wrap: nowrap; 
+            }
+            .header-actions { 
+                gap: 8px; 
+                justify-content: center;
+                width: 100%;
+            }
+            .logo { max-width: 30px; }
+            .company-name { font-size: 14px; letter-spacing: 0; }
+            .header-actions { gap: 6px; }
+            .nav-button { padding: 6px 8px; font-size: 11px; white-space: nowrap; }
+            .lang-btn { font-size: 12px; padding: 6px 2px; }
+            
+            .hero { padding-top: 50px; padding-bottom: 30px; }
+            .hero h1 { font-size: 22px; }
+            #about h2, #partners h2 { font-size: 20px; }
+            section { padding: 40px 15px; }
 
-    
-    .brand {
-        gap: 8px;
-    }
-
-    
-    .logo {
-        max-width: 35px;
-    }
-
-   
-    .company-name {
-        font-size: 15px;
-        letter-spacing: 0.5px;
-    }
-
-    
-    .header-actions {
-        gap: 10px;
-    }
-
-    .nav-button {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
-
-    .lang-btn {
-        font-size: 12px;
-        padding: 6px 2px;
-    }
-
-    .hero {
-        padding-top: 60px;
-        padding-bottom: 40px;
-    }
-
-    .hero h1 {
-        font-size: 24px; 
-    }
-
-    #about h2 {
-        font-size: 22px;
-    }
-
-    section {
-        padding: 50px 15px;
-    }
-}
+            .slider-track {
+                gap: 20px;
+            }
+            .partner-logo { 
+                width: 120px; 
+                height: 60px; 
+            } 
+            .partner-logo img {
+                max-width: 100px;
+                max-height: 35px;
+            }
+        }
+        @media (max-width: 1024px) {
+            header {
+                padding: 15px 20px;
+            }
+            .company-name {
+                font-size: 18px;
+            }
+            .header-actions {
+                gap: 10px;
+            }
+            .nav-button {
+                padding: 8px 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="brand">
-            <img src="logo.png" alt="Festenparts Logo" class="logo">
+            <img src="images/logo.png" alt="Festenparts Logo" class="logo">
             <span class="company-name">Festenparts</span>
         </div>
         <div class="header-actions">
@@ -233,7 +313,8 @@
                     <a href="ru.html">RU</a>
                 </div>
             </div>
-            <a href="#about" class="nav-button">О нас</a>
+            <a href="#partners" class="nav-button">Партнеры</a>
+            <a href="#about" class="nav-button">О Нас</a>
         </div>
     </header>
 
@@ -244,17 +325,87 @@
         </section>
         <section id="about">
             <h2>О нас</h2>
-            <p>Festenparts — ваш надежный партнер на рынке автомобильных комплектующих. Мы специализируемся на поставке проверенных деталей от мировых производителей.</p>
+            <p>Festenparts - ваш надежный партнер на рынке автомобильных комплектующих. Мы специализируемся на поставке проверенных деталей от мировых производителей.</p>
             <br>
-            <p>Наша цель — обеспечить быстрый сервис, прозрачные цены и долговечность каждой проданной запчасти.</p>
+            <p>Наша цель - обеспечить быстрый сервис, прозрачные цены и долговечность каждой проданной запчасти.</p>
         </section>
+
+        <section id="partners">
+            <h2>Наши Партнеры</h2>
+            <div class="slider-container">
+                <div class="slider-track">
+                    <div class="partner-logo">
+                        <a href="https://www.zf.com/mobile/en/homepage/homepage.html" target="_blank"><img src="images/ZF.png" alt="Partner 1"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.febi.com/" target="_blank"><img src="images/febi_bilstein.png" alt="Partner 2"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://autos.com.pl/en" target="_blank"><img src="images/autos-logo-clear.png" alt="Partner 3"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://safholland.com/int/en" target="_blank"><img src="images/SAF_Holland.png" alt="Partner 4"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.knorr-bremse.com/en/" target="_blank"><img src="images/Knorr_Bremse.png" alt="Partner 5"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.zf.com/mobile/en/homepage/homepage.html" target="_blank"><img src="images/ZF.png" alt="Partner 1"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.febi.com/" target="_blank"><img src="images/febi_bilstein.png" alt="Partner 2"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://autos.com.pl/en" target="_blank"><img src="images/autos-logo-clear.png" alt="Partner 3"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://safholland.com/int/en" target="_blank"><img src="images/SAF_Holland.png" alt="Partner 4"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.knorr-bremse.com/en/" target="_blank"><img src="images/Knorr_Bremse.png" alt="Partner 5"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.zf.com/mobile/en/homepage/homepage.html" target="_blank"><img src="images/ZF.png" alt="Partner 1"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.febi.com/" target="_blank"><img src="images/febi_bilstein.png" alt="Partner 2"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://autos.com.pl/en" target="_blank"><img src="images/autos-logo-clear.png" alt="Partner 3"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://safholland.com/int/en" target="_blank"><img src="images/SAF_Holland.png" alt="Partner 4"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.knorr-bremse.com/en/" target="_blank"><img src="images/Knorr_Bremse.png" alt="Partner 5"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.zf.com/mobile/en/homepage/homepage.html" target="_blank"><img src="images/ZF.png" alt="Partner 1"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.febi.com/" target="_blank"><img src="images/febi_bilstein.png" alt="Partner 2"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://autos.com.pl/en" target="_blank"><img src="images/autos-logo-clear.png" alt="Partner 3"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://safholland.com/int/en" target="_blank"><img src="images/SAF_Holland.png" alt="Partner 4"></a>
+                    </div>
+                    <div class="partner-logo">
+                        <a href="https://www.knorr-bremse.com/en/" target="_blank"><img src="images/Knorr_Bremse.png" alt="Partner 5"></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="contacts">
         <div class="contact-info">
             <p style="font-size: 18px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; text-transform: uppercase;">Festenparts</p>
             <p> г. Баку, Азербайджан</p>
-            <p> Телефон: <a href="tel:+994000000000">+994 00 000 00 00</a></p>
+            <p> Телефон: <a href="tel:+994103085508" style="white-space: nowrap;">+994 10 308 55 08</a></p>
             <p> Email: <a href="mailto:khagani@festenparts.az">khagani@festenparts.az</a></p>
         </div>
     </footer>
